@@ -19,6 +19,6 @@ jobs:
       - name: Install dependencies
         run: dotnet restore ./TokenParser/TokenParser.sln
       - name: Build 
-        run: dotnet build .\TokenParser\TokenParser.sln --configuration Release --no-restore
+        run: dotnet build ./TokenParser/TokenParser.sln --configuration Release --no-restore
       - name: Test
-        run: dotnet test .\TokenParser\TokenParser.sln --no-restore --verbosity normal
+        run: dotnet test ./TokenParser/TokenParser.sln --no-restore --verbosity normal
