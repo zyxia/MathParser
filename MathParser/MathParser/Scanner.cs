@@ -106,7 +106,7 @@ namespace MathParser
                    currentStart = startState[value]; }
         }
 #else  // BABEL
-     public sealed partial class Scanner : ScanBase
+    internal sealed partial class Scanner : ScanBase
     {
         private ScanBuff buffer;
         int currentScOrd;  // start condition ordinal

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TokenParser.Functions
 {
-    public class Sin : Function
+    internal class Sin : Function
     {
         private Function @internal;
 

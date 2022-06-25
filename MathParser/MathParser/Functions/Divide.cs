@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TokenParser.Functions
 {
-    public class AddFunction : Function
+    internal class DivideFunction : Function
     {
         private Function left;
         private Function right;
 
-        public AddFunction(Function left, Function right)
+        public DivideFunction(Function left, Function right)
         {
             this.left = left;
             this.right = right;
@@ -20,14 +21,14 @@ namespace TokenParser.Functions
             switch (l)
             {
                 case ConstValueFunction when r is ConstValueFunction:
-                    return new ConstValueFunction(l.GetValue() + r.GetValue());
+                    return new ConstValueFunction(l.GetValue() / r.GetValue());
                 case ConstValueFunction when l.GetValue() == 0.0f:
-                    return r;
+                    return new ConstValueFunction(0);
             }
 
             if (r is ConstValueFunction && r.GetValue() == 0.0f)
             {
-                return l;
+                throw new Exception("divide by 0 is not valid!!");
             }
 
             left = l;
@@ -37,37 +38,40 @@ namespace TokenParser.Functions
 
         public override Function GetDerivative(string name)
         {
-            return new AddFunction(left.GetDerivative(name), right.GetDerivative(name));
+            var f1 = new SubFunction(new MulFunction(left.GetDerivative(name), right.Clone()),
+                new MulFunction(left.Clone(), right.GetDerivative(name)));
+            var f2 = new MulFunction(right.Clone(), right.Clone());
+            return new DivideFunction(f1, f2);
         }
 
         public override Function Const(Param value)
         {
-            return new AddFunction(left.Const(value), right.Const(value));
+            return new DivideFunction(left.Const(value), right.Const(value));
         }
 
         public override Function Const(List<Param> value)
         {
-            return new AddFunction(left.Const(value), right.Const(value));
+            return new DivideFunction(left.Const(value), right.Const(value));
         }
 
         public override float GetValue(Param value)
         {
-            return left.GetValue(value) + right.GetValue(value);
+            return left.GetValue(value) / right.GetValue(value);
         }
 
         public override Function Clone()
         {
-            return new AddFunction(left.Clone(), right.Clone());
+            return new DivideFunction(left.Clone(), right.Clone());
         }
 
         public override float GetValue()
         {
-            return left.GetValue() + right.GetValue();
+            return left.GetValue() / right.GetValue();
         }
 
         public override string ToString()
         {
-            return "(" + left + " + " + right + ")";
+            return "(" + left + " / " + right + ")";
         }
     }
 }
