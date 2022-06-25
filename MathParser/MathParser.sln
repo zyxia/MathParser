@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenParser", "TokenParser\TokenParser.csproj", "{E80543EF-C314-45DC-B8B9-FE429303B940}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathParser", "MathParser\MathParser.csproj", "{E80543EF-C314-45DC-B8B9-FE429303B940}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.TokenParser", "Test.TokenParser\Test.TokenParser.csproj", "{B52D556A-03EB-4FCC-87CE-863C479930D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.MathParser", "Test.MathParser\Test.MathParser.csproj", "{B52D556A-03EB-4FCC-87CE-863C479930D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
