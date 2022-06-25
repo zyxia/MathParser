@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using MathParser;
-using Newtonsoft.Json;
 using NUnit.Framework;
 using TokenParser;
 using TokenParser.Functions;
 
 namespace Test.TokenParser
 {
-    public class TreeBuild
+    internal class TreeBuildTest
     {
         [Test]
         public void BuildTest()

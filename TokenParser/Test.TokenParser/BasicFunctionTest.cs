@@ -1,9 +1,8 @@
-using System.IO;
 using NUnit.Framework;
 
 namespace Test.TokenParser
 {
-    public class BasicFunctionTest
+    internal class BasicFunctionTest
     {
     
         [SetUp]
@@ -14,42 +13,42 @@ namespace Test.TokenParser
         [Test]
         public void Basic1()
         {
-            Common.ParseTest("x"); 
+            CommonTest.ParseTest("x"); 
         }
         [Test]
         public void Basic2()
         {
-            Common.ParseTest("x + x"); 
+            CommonTest.ParseTest("x + x"); 
         }
         [Test]
         public void Linear()
         {
-            Common.ParseTest("2*x");  
+            CommonTest.ParseTest("2*x");  
         }
         [Test]
         public void Number()
         {
-            Common.ParseTest("23.0"); 
-            Common.ParseTest("23.01"); 
-            Common.ParseTest("-23.01");
-            Common.ParseTest("0.01");
+            CommonTest.ParseTest("23.0"); 
+            CommonTest.ParseTest("23.01"); 
+            CommonTest.ParseTest("-23.01");
+            CommonTest.ParseTest("0.01");
         }
         [Test]
         public void SinTest()
         {
-            Common.ParseTest("sin(x)"); 
+            CommonTest.ParseTest("sin(x)"); 
         }
         
         [Test]
         public void CosTest()
         {
-            Common.ParseTest("cos(x)");  
+            CommonTest.ParseTest("cos(x)");  
         }
        
         [Test]
         public void ScaleSinTest()
         {
-           Common. ParseTest("2.7*sin(-2.03*x)");  
+           CommonTest. ParseTest("2.7*sin(-2.03*x)");  
         }
     }
 }

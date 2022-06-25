@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TokenParser.Functions
 {
-    public class Cos : Function
+    internal class Cos : Function
     {
         private Function @internal;
 
