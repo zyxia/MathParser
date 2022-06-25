@@ -9,7 +9,6 @@
 
 using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;  
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("TokenParser")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
@@ -19,7 +18,5 @@ using System.Runtime.CompilerServices;
 [assembly: System.Reflection.AssemblyTitleAttribute("TokenParser")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0")]
 
-
-[assembly: InternalsVisibleTo("Test.TokenParser") ]  
 // 由 MSBuild WriteCodeFragment 类生成。
 

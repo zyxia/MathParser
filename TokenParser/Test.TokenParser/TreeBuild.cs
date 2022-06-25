@@ -4,59 +4,47 @@ using System.IO;
 using MathParser;
 using Newtonsoft.Json;
 using NUnit.Framework;
+using TokenParser;
+using TokenParser.Functions;
 
 namespace Test.TokenParser
 {
     public class TreeBuild
     {
         [Test]
-        public  void BuildTest()
+        public void BuildTest()
         {
-            string value=  "(sin(x)-cos(y))";
+            var value = "(sin(x)-cos(y))";
             TestMathFormat(value);
-            value=  "(sin(x)-cos(y-x))";
+            value = "(sin(x)-cos(y-x))";
             TestMathFormat(value);
-            value=  "(sin(x)-cos(y*x))";
+            value = "(sin(x)-cos(y*x))";
             TestMathFormat(value);
-            value=  "(sin(x)-cos(x*x))";
+            value = "(sin(x)-cos(x*x))";
+            TestMathFormat(value);
+        }
+
+        [Test]
+        public void BuildTest2()
+        {
+            const string value = "2*sin(t)*cos(1.570796)";
             TestMathFormat(value);
         }
         [Test]
-        public void buildTest2()
+        public void GetValueTest()
         {
-            string value=  "2*sin(t)*cos(1.570796)";
-            TestMathFormat(value);
+            const string sValue = "2*sin(t)";
+            var value = sValue.ToFunction().GetValue(new Param("t", 0));
+            Assert.AreEqual(value, 0.0f);
+            value = sValue.ToFunction().GetValue(new Param("t", (float)(Math.PI/2)));
+            Assert.AreEqual(value, 2.0f);
         }
-        public void TestMathFormat(string value)
-        { 
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
-            writer.WriteLine(value);
-            writer.Flush();
-            stream.Seek(0, SeekOrigin.Begin);
-            var scanner = new Scanner(stream);
-            var parser = new Parser(scanner);
-            Assert.IsTrue(parser.Parse());
-            var root = parser.GetRootNode();
-            
-            /*var settings = new JsonSerializerSettings()
-            {
-                Formatting = Formatting.Indented,
-                NullValueHandling = NullValueHandling.Include,
-                MissingMemberHandling = MissingMemberHandling.Ignore,
-            };
-            var paramList = new List<string>();
-            root.GetParamList( paramList);
-            int pCount = paramList.Count;
-            Assert.True(pCount == 2);
-            Console.WriteLine( Newtonsoft.Json.JsonConvert.SerializeObject(root,settings));;
-            writer.Dispose();
-            stream.Dispose();*/
-            
-            root.ToFunction(out var function);
+        private static void TestMathFormat(string value)
+        {
+            var function = value.ToFunction();
             var functionD = function.GetDerivative("x");
             functionD = functionD.Reduce();
-            Console.WriteLine("the x partial  derivative of "+value+" is \n"+functionD.ToString());
+            Console.WriteLine("the x partial  derivative of " + value + " is \n" + functionD.ToString());
         }
     }
 }
