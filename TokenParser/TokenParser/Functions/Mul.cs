@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TokenParser.Functions
 {
-    public class MulFunction : Function
+    internal class MulFunction : Function
     {
         private Function left;
         private Function right;

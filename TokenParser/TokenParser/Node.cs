@@ -30,7 +30,7 @@ namespace MathParser
             }
         }
 
-        public class SinNode : Node
+        internal class SinNode : Node
         {
             Node _child;
 
@@ -61,7 +61,7 @@ namespace MathParser
             }
         }
 
-        public class CosNode : Node
+        internal class CosNode : Node
         {
             Node _child;
 
@@ -92,7 +92,7 @@ namespace MathParser
             }
         }
 
-        public class PlusNode : Node
+        internal class PlusNode : Node
         {
             Node _left;
             Node _right;
@@ -130,7 +130,7 @@ namespace MathParser
             }
         }
 
-        public class MinusNode : Node
+        internal class MinusNode : Node
         {
             Node _left;
             Node _right;
@@ -168,7 +168,7 @@ namespace MathParser
             }
         }
 
-        public class MulNode : Node
+        internal class MulNode : Node
         {
             Node _left;
             Node _right;
@@ -206,7 +206,7 @@ namespace MathParser
             }
         }
 
-        public class DivideNode : Node
+        internal class DivideNode : Node
         {
             Node _left;
             Node _right;
@@ -244,7 +244,7 @@ namespace MathParser
             }
         }
 
-        public class VariableNode : Node
+        internal class VariableNode : Node
         {
             string _paramName;
 
@@ -275,7 +275,7 @@ namespace MathParser
             }
         }
 
-        public class ConstNode : Node
+        internal class ConstNode : Node
         {
             float _value;
 

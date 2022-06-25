@@ -7,8 +7,8 @@
 
         public Param(string name, float value)
         {
-            this.Name = name;
-            this.Value = value;
+            Name = name;
+            Value = value;
         }
     }
 }
