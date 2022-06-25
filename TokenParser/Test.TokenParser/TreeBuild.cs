@@ -5,6 +5,7 @@ using MathParser;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using TokenParser;
+using TokenParser.Functions;
 
 namespace Test.TokenParser
 {
@@ -29,7 +30,15 @@ namespace Test.TokenParser
             const string value = "2*sin(t)*cos(1.570796)";
             TestMathFormat(value);
         }
-
+        [Test]
+        public void GetValueTest()
+        {
+            const string sValue = "2*sin(t)";
+            var value = sValue.ToFunction().GetValue(new Param("t", 0));
+            Assert.AreEqual(value, 0.0f);
+            value = sValue.ToFunction().GetValue(new Param("t", (float)(Math.PI/2)));
+            Assert.AreEqual(value, 2.0f);
+        }
         private static void TestMathFormat(string value)
         {
             var function = value.ToFunction();
