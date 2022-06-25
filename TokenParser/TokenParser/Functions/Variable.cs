@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace TokenParser.Functions
 {
-    public class VariableFunction : Function
+    internal class VariableFunction : Function
     {
         private string Name { get; }
 

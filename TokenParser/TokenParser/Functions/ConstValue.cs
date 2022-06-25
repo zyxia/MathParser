@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace TokenParser.Functions
 {
-    public class ConstValueFunction : Function
+    internal class ConstValueFunction : Function
     {
         private float Value { get; }
 

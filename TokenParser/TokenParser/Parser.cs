@@ -25,7 +25,7 @@ public enum Tokens {error=2,EOF=3,WORLD=4,NUMBER=5,SIN=6,
 
 // Abstract base class for GPLEX scanners
 [GeneratedCodeAttribute( "Gardens Point Parser Generator", "1.5.2")]
-public abstract class ScanBase : AbstractScanner<MathParser.Scanner.Node,LexLocation> {
+internal abstract class ScanBase : AbstractScanner<MathParser.Scanner.Node,LexLocation> {
   private LexLocation __yylloc = new LexLocation();
   public override LexLocation yylloc { get { return __yylloc; } set { __yylloc = value; } }
   protected virtual bool yywrap() { return true; }
@@ -33,7 +33,7 @@ public abstract class ScanBase : AbstractScanner<MathParser.Scanner.Node,LexLoca
 
 // Utility class for encapsulating token information
 [GeneratedCodeAttribute( "Gardens Point Parser Generator", "1.5.2")]
-public class ScanObj {
+internal class ScanObj {
   public int token;
   public MathParser.Scanner.Node yylval;
   public LexLocation yylloc;
@@ -43,7 +43,7 @@ public class ScanObj {
 }
 
 [GeneratedCodeAttribute( "Gardens Point Parser Generator", "1.5.2")]
-public partial class Parser: ShiftReduceParser<MathParser.Scanner.Node, LexLocation>
+internal partial class Parser: ShiftReduceParser<MathParser.Scanner.Node, LexLocation>
 {
 #pragma warning disable 649
   private static Dictionary<int, string> aliases;

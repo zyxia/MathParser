@@ -2,7 +2,7 @@
 
 namespace TokenParser.Functions
 {
-    public class AddFunction : Function
+    internal class AddFunction : Function
     {
         private Function left;
         private Function right;

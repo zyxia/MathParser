@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace Test.TokenParser
 {
-    public static class Common
+    internal static class CommonTest
     {
         public static void ParseTest(string value)
         {
