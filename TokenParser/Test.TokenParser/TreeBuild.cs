@@ -23,13 +23,13 @@ namespace Test.TokenParser
         }
 
         [Test]
-        public void buildTest2()
+        public void BuildTest2()
         {
             string value = "2*sin(t)*cos(1.570796)";
             TestMathFormat(value);
         }
 
-        public void TestMathFormat(string value)
+        private static void TestMathFormat(string value)
         {
             var stream = new MemoryStream();
             var writer = new StreamWriter(stream);
