@@ -17,7 +17,7 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
-        run: dotnet restore .\TokenParser\TokenParser.sln
+        run: dotnet restore ./TokenParser/TokenParser.sln
       - name: Build 
         run: dotnet build .\TokenParser\TokenParser.sln --configuration Release --no-restore
       - name: Test
