@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TokenParser\TokenParser.csproj" />
+      <ProjectReference Include="..\MathParser\MathParser.csproj" />
     </ItemGroup>
 
 </Project>

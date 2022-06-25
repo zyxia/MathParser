@@ -11,13 +11,13 @@ using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("TokenParser")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("MathParser")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("TokenParser")]
-[assembly: System.Reflection.AssemblyTitleAttribute("TokenParser")]
+[assembly: System.Reflection.AssemblyProductAttribute("MathParser")]
+[assembly: System.Reflection.AssemblyTitleAttribute("MathParser")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0")]
-[assembly:InternalsVisibleTo("Test.TokenParser")]
+[assembly:InternalsVisibleTo("Test.MathParser")]
 // 由 MSBuild WriteCodeFragment 类生成。
 
