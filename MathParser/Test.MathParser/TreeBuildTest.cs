@@ -30,10 +30,14 @@ namespace Test.TokenParser
         public void GetValueTest()
         {
             const string sValue = "2*sin(t)";
-            var value = sValue.ToFunction().GetValue(new Param("t", 0));
+            var function = sValue.ToFunction();
+            var value = function.GetValue(new Param("t", 0));
+            var dFunction = function.GetDerivative("t");
+            var value2 =dFunction.GetValue(new Param("t", 0));
             Assert.AreEqual(value, 0.0f);
-            value = sValue.ToFunction().GetValue(new Param("t", (float)(Math.PI/2)));
+            value = function.GetValue(new Param("t", (float)(Math.PI/2)));
             Assert.AreEqual(value, 2.0f);
+            Assert.AreEqual(value2,2.0f);
         }
         private static void TestMathFormat(string value)
         {
