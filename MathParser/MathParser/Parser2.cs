@@ -1,4 +1,5 @@
-﻿using MathParser;
+﻿using System.Runtime.CompilerServices;
+using MathParser;
 using QUT.Gppg;
 
 namespace MathParser
@@ -9,6 +10,11 @@ namespace MathParser
         {
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Scanner.Node GetRootNodeInline()
+        {
+            return MathParser.Scanner.Node.Root;
+        }
         public Scanner.Node GetRootNode()
         {
             return MathParser.Scanner.Node.Root;

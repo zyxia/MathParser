@@ -36,7 +36,7 @@ namespace TokenParser.Functions
 
         public override Function Const(List<Param> paramList)
         {
-            Param pFind = null;
+            Param pFind =Param.None;
             foreach (var param in paramList)
             {
                 if (param.Name == this.Name)
@@ -45,8 +45,7 @@ namespace TokenParser.Functions
                     break;
                 }
             }
-
-            return pFind != null ? new ConstValueFunction(pFind.Value) : new ConstValueFunction(0);
+            return !pFind.Equals(Param.None)  ? new ConstValueFunction(pFind.Value) : new ConstValueFunction(0);
         }
 
         public override float GetValue(Param param)

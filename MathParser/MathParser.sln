@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathParser", "MathParser\Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.MathParser", "Test.MathParser\Test.MathParser.csproj", "{B52D556A-03EB-4FCC-87CE-863C479930D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenchMark", "BenchMark\BenchMark.csproj", "{0B7D6D36-4675-49F4-A859-580E06099E16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{B52D556A-03EB-4FCC-87CE-863C479930D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B52D556A-03EB-4FCC-87CE-863C479930D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B52D556A-03EB-4FCC-87CE-863C479930D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B7D6D36-4675-49F4-A859-580E06099E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B7D6D36-4675-49F4-A859-580E06099E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B7D6D36-4675-49F4-A859-580E06099E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B7D6D36-4675-49F4-A859-580E06099E16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
