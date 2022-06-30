@@ -2,9 +2,6 @@
 obj/
 bin/
 *.exe
-*.lex
 */*.lst
 */*.html
-*/*.y
-*/*.lst
 */*.DotSettings.user
