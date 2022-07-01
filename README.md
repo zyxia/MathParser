@@ -1,5 +1,5 @@
 # MathParser
-This Library can parse a string to a Fucntion object in c#
+This Library can parse a string to a Function object in c#
 
 for example:
 ```
