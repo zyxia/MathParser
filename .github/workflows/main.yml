@@ -23,7 +23,7 @@ jobs:
       - name: Test
         run: dotnet test ./MathParser/MathParser.sln --no-restore --verbosity normal
       - name: Run benchmark
-        run: cd ./MathParser/BenchMark && dotnet run --configuration Release --exporters json --filter '*'
+        run: cd ./MathParser/BenchMark && dotnet run --configuration Release --exporters json --filter '*' && ls
       - name: Store benchmark result
         uses: rhysd/github-action-benchmark@v1
         with:
