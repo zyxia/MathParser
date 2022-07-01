@@ -1,5 +1,7 @@
 # MathParser
 This Library can parse a string to a Function object in c#
+- [Benchmark results](https://zyxia.github.io/MathParser/dev/bench/)
+
 
 for example:
 ```C#
