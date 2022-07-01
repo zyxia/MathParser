@@ -14,9 +14,10 @@ for example:
   Assert.AreEqual(value2,2.0f);
 ```
 
-the doc is generate by 
-```
-dotnet document apply
+it is important that the GetDerivative result is a object also!
+```diff
++ var value = function.GetValue(new Param("t", 0));
++ var dFunction = function.GetDerivative("t");， 
 ```
 
 there is two main api class for this library
