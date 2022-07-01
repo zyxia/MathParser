@@ -15,9 +15,9 @@ for example:
 ```
 
 it is important that the GetDerivative result is a object also!
-```diff
-+ var value = function.GetValue(new Param("t", 0));
+```diff 
 + var dFunction = function.GetDerivative("t");， 
++ var value2 =dFunction.GetValue(new Param("t", 0));
 ```
 
 there is two main api class for this library
