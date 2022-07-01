@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1656713999008,
+  "lastUpdate": 1656714054075,
   "repoUrl": "https://github.com/zyxia/MathParser",
   "entries": {
     "Benchmark.Net Benchmark": [
@@ -60,6 +60,36 @@ window.BENCHMARK_DATA = {
             "value": 3311.7597479949127,
             "unit": "ns",
             "range": "± 109.44243795247858"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "xia969919860@163.com",
+            "name": "yeyeye",
+            "username": "zyxia"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "7965a0831beb3cbf84921cefc54e63523e06a168",
+          "message": "12 add benchmark to ci (#13)\n\n* test benchmark\r\n\r\n* test ci\r\n\r\n* test ci 2\r\n\r\n* test ci 3\r\n\r\n* test ci\r\n\r\n* test ci\r\n\r\n* test ci\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* remove unused file",
+          "timestamp": "2022-07-02T06:18:23+08:00",
+          "tree_id": "3c6b7f2e8ad26e2fe879c7e8ccac4753d610ec90",
+          "url": "https://github.com/zyxia/MathParser/commit/7965a0831beb3cbf84921cefc54e63523e06a168"
+        },
+        "date": 1656714053141,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "BenchMark.Benchs.ToFunction",
+            "value": 3241.1715898513794,
+            "unit": "ns",
+            "range": "± 99.74078585378237"
           }
         ]
       }
