@@ -2,7 +2,7 @@
 This Library can parse a string to a Function object in c#
 
 for example:
-```
+```C#
   const string sValue = "2*sin(t)";
   var function = sValue.ToFunction();
   var value = function.GetValue(new Param("t", 0));
