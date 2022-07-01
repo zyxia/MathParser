@@ -23,13 +23,13 @@ jobs:
       - name: Test
         run: dotnet test ./MathParser/MathParser.sln --no-restore --verbosity normal
       - name: Run benchmark
-        run: cd ./MathParser/BenchMark && dotnet run --configuration Release --exporters json --filter '*' && ls
+        run: cd ./MathParser/BenchMark && dotnet run --configuration Release --exporters json --filter '*' && cd BenchmarkDotNet.Artifacts/results/ && ls
       - name: Store benchmark result
         uses: rhysd/github-action-benchmark@v1
         with:
           name: Benchmark.Net Benchmark
           tool: 'benchmarkdotnet'
-          output-file-path: ./MathParser/BenchMark/BenchmarkDotNet.Artifacts/results/BenchMark.Benchs-report-github.md
+          output-file-path: ./MathParser/BenchMark/BenchmarkDotNet.Artifacts/results/BenchMark.Benchs-report-full-compressed.json
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
           # Show alert with commit comment on detecting possible performance regression
