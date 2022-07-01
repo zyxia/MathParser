@@ -1,6 +1,6 @@
 # MathParser
 This Library can parse a string to a Function object in c#
-- [Benchmark results](https://zyxia.github.io/MathParser/dev/bench/)
+
 
 
 for example:
@@ -27,3 +27,4 @@ there is two main api class for this library
 1.StaticTool
 2.Function
 ```
+- [Benchmark results](https://zyxia.github.io/MathParser/dev/bench/)
