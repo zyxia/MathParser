@@ -1,7 +1,0 @@
-﻿*/.idea
-obj/
-bin/
-*.exe
-*/*.lst
-*/*.html
-*/*.DotSettings.user
