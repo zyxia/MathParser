@@ -13,11 +13,7 @@
       <Configuration>Release</Configuration>
     </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\MathParser\MathParser.csproj" />
-    </ItemGroup>
-
+      <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+    </ItemGroup> 
 </Project>
