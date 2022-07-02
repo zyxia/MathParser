@@ -1,5 +1,5 @@
 name: create publish key
-
+on: [push]
 jobs:
   create_key:
     runs-on: ubuntu-latest
