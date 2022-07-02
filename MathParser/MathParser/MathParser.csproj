@@ -6,6 +6,8 @@
         <FileVersion>1.0</FileVersion>
         <GeneratedAssemblyInfoFile>assemblyinfo.cs</GeneratedAssemblyInfoFile>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <VersionPrefix>0.0.1</VersionPrefix>
+        <VersionSuffix>alpha</VersionSuffix>
     </PropertyGroup>
 
 </Project>
