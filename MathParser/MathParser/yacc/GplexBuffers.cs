@@ -18,7 +18,7 @@ namespace QUT.GplexBuffers
 {
 // Code copied from GPLEX embedded resource
     [Serializable]
-    internal class BufferException : Exception
+    public class BufferException : Exception
     {
         public BufferException() { }
         public BufferException(string message) : base(message) { }

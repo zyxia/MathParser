@@ -6,9 +6,9 @@
 //
 //  GPLEX Version:  1.2.2
 //  Machine:  DESKTOP-1F8U1G4
-//  DateTime: 2022/6/7 22:37:36
+//  DateTime: 2022/7/3 23:56:13
 //  UserName: zyxia
-//  GPLEX input file <.\MathExpr.lex - 2022/6/7 22:37:12>
+//  GPLEX input file <.\MathExpr.lex - 2022/7/3 23:56:08>
 //  GPLEX frame file <embedded resource>
 //
 //  Option settings: verbose, parser, stack, minimize
@@ -57,12 +57,12 @@ namespace MathParser
 
      public abstract class ScanBase
     {
-        //[SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yylex")]
-        //[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yylex")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yylex")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yylex")]
         public abstract int yylex();
 
-        //[SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yywrap")]
-        //[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yywrap")]
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yywrap")]
+        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yywrap")]
         protected virtual bool yywrap() { return true; }
 
 #if BABEL
@@ -106,7 +106,7 @@ namespace MathParser
                    currentStart = startState[value]; }
         }
 #else  // BABEL
-    internal sealed partial class Scanner : ScanBase
+     internal sealed partial class Scanner : ScanBase
     {
         private ScanBuff buffer;
         int currentScOrd;  // start condition ordinal
@@ -115,7 +115,7 @@ namespace MathParser
         /// <summary>
         /// The input buffer for this scanner.
         /// </summary>
-  
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public ScanBuff Buffer { get { return buffer; } }
         
         private static int GetMaxParseToken() {
@@ -127,13 +127,11 @@ namespace MathParser
         
         enum Result {accept, noMatch, contextFound};
 
-        const int maxAccept = 10;
-        const int initial = 11;
+        const int maxAccept = 11;
+        const int initial = 12;
         const int eofNum = 0;
         const int goStart = -1;
         const int INITIAL = 0;
-        const int Ident = 1;
-        const int RealNum = 2;
 
 #region user code
 #endregion user code
@@ -167,7 +165,7 @@ namespace MathParser
         }
     };
 
-    static int[] startState = new int[] {11, 14, 14, 0};
+    static int[] startState = new int[] {12, 0};
 
 #region CharacterMap
     static sbyte[] map = new sbyte[256] {
@@ -189,29 +187,28 @@ namespace MathParser
 /*   '\xF0' */ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 #endregion
 
-    static Table[] NxS = new Table[15] {
+    static Table[] NxS = new Table[14] {
 /* NxS[   0] */ new Table(0, 0, 0, null), // Shortest string ""
 /* NxS[   1] */ // Shortest string "A"
       new Table(1, 3, -1, new sbyte[] {1, 1, 1}),
-/* NxS[   2] */ // Shortest string "1"
-      new Table(2, 3, -1, new sbyte[] {2, 2, 13}),
-/* NxS[   3] */ new Table(0, 0, -1, null), // Shortest string ","
-/* NxS[   4] */ new Table(0, 0, -1, null), // Shortest string "+"
-/* NxS[   5] */ new Table(0, 0, -1, null), // Shortest string "-"
-/* NxS[   6] */ new Table(0, 0, -1, null), // Shortest string "*"
-/* NxS[   7] */ new Table(0, 0, -1, null), // Shortest string "/"
-/* NxS[   8] */ new Table(0, 0, -1, null), // Shortest string "("
-/* NxS[   9] */ new Table(0, 0, -1, null), // Shortest string ")"
-/* NxS[  10] */ // Shortest string "0.0"
-      new Table(2, 2, -1, new sbyte[] {10, 10}),
-/* NxS[  11] */ // Shortest string ""
-      new Table(1, 11, -1, new sbyte[] {1, 12, 2, -1, 3, 4, 
-          5, 6, 7, 8, 9}),
-/* NxS[  12] */ // Shortest string "0"
+/* NxS[   2] */ // Shortest string "0"
       new Table(4, 1, -1, new sbyte[] {13}),
+/* NxS[   3] */ // Shortest string "1"
+      new Table(2, 3, -1, new sbyte[] {3, 3, 13}),
+/* NxS[   4] */ new Table(0, 0, -1, null), // Shortest string ","
+/* NxS[   5] */ new Table(0, 0, -1, null), // Shortest string "+"
+/* NxS[   6] */ new Table(0, 0, -1, null), // Shortest string "-"
+/* NxS[   7] */ new Table(0, 0, -1, null), // Shortest string "*"
+/* NxS[   8] */ new Table(0, 0, -1, null), // Shortest string "/"
+/* NxS[   9] */ new Table(0, 0, -1, null), // Shortest string "("
+/* NxS[  10] */ new Table(0, 0, -1, null), // Shortest string ")"
+/* NxS[  11] */ // Shortest string "0.0"
+      new Table(2, 2, -1, new sbyte[] {11, 11}),
+/* NxS[  12] */ // Shortest string ""
+      new Table(1, 11, -1, new sbyte[] {1, 2, 3, -1, 4, 5, 
+          6, 7, 8, 9, 10}),
 /* NxS[  13] */ // Shortest string "0."
-      new Table(2, 2, -1, new sbyte[] {10, 10}),
-/* NxS[  14] */ new Table(0, 0, -1, null), // Shortest string ""
+      new Table(2, 2, -1, new sbyte[] {11, 11}),
     };
 
 int NextState() {
@@ -268,7 +265,8 @@ int NextState() {
         /// This method creates a buffer context record from
         /// the current buffer object, together with some
         /// scanner state values. 
-        /// </summary> 
+        /// </summary>
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         BufferContext MkBuffCtx()
 		{
 			BufferContext rslt;
@@ -282,7 +280,8 @@ int NextState() {
         /// <summary>
         /// This method restores the buffer value and allied
         /// scanner state from the given context record value.
-        /// </summary> 
+        /// </summary>
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         void RestoreBuffCtx(BufferContext value)
 		{
 			this.buffer = value.buffSv;
@@ -348,7 +347,7 @@ int NextState() {
             tokECol = cCol;
         }
 
- 
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         int Peek()
         {
             int rslt, codeSv = code, cColSv = cCol, lNumSv = lNum, bPosSv = buffer.Pos;
@@ -366,7 +365,7 @@ int NextState() {
         /// </summary>
         /// <param name="source">the input string</param>
         /// <param name="offset">starting offset in the string</param>
-    
+       //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public void SetSource(string source, int offset)
         {
             this.buffer = ScanBuff.GetBuffer(source);
@@ -381,7 +380,7 @@ int NextState() {
         /// Create and initialize a LineBuff buffer object for this scanner
         /// </summary>
         /// <param name="source">the list of input strings</param>
-  
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public void SetSource(IList<string> source)
         {
             this.buffer = ScanBuff.GetBuffer(source);
@@ -398,7 +397,7 @@ int NextState() {
         /// StreamBuff is buffer for 8-bit byte files.
         /// </summary>
         /// <param name="source">the input byte stream</param>
-     
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public void SetSource(Stream source)
         {
             this.buffer = ScanBuff.GetBuffer(source);
@@ -417,7 +416,7 @@ int NextState() {
         /// <param name="source">the input text file</param>
         /// <param name="fallbackCodePage">Code page to use if file has
         /// no BOM. For 0, use machine default; for -1, 8-bit binary</param>
-  
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         public void SetSource(Stream source, int fallbackCodePage)
         {
             this.buffer = ScanBuff.GetBuffer(source, fallbackCodePage);
@@ -470,16 +469,19 @@ int NextState() {
             return next;
         }
         
-       
+       // [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         int yypos { get { return tokPos; } }
         
-        
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         int yyline { get { return tokLin; } }
         
- 
+       // [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         int yycol { get { return tokCol; } }
 
-         public string yytext
+       // [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+       // [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yytext")]
+       // [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yytext")]
+        public string yytext
         {
             get 
             {
@@ -495,7 +497,8 @@ int NextState() {
         /// yytext is also re-evaluated. 
         /// </summary>
         /// <param name="n">The number of codepoints to consume</param>
-         void yyless(int n)
+       // [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        void yyless(int n)
         {
             buffer.Pos = tokPos;
             // Must read at least one char, so set before start.
@@ -517,7 +520,7 @@ int NextState() {
         /// Removes the last "n" code points from the pattern.
         /// </summary>
         /// <param name="n">The number to remove</param>
-        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+       // [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         void _yytrunc(int n) { yyless(yyleng - n); }
         
         //
@@ -533,7 +536,7 @@ int NextState() {
         /// The length of the pattern in codepoints (not the same as 
         /// string-length if the pattern contains any surrogate pairs).
         /// </summary>
-        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+       // [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         //[SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yyleng")]
         //[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yyleng")]
         public int yyleng
@@ -655,30 +658,31 @@ if ( yytext == "sin")
                                         yylval =  MakeVariableNode(yytext);
                                         return (int)Tokens.WORLD;
             break;
-        case 2: // Recognized '([1-9][0-9]*\.[0-9]+)|(0\.[0-9]+)|([1-9][0-9]*)',	Shortest string "1"
-        case 10: // Recognized '([1-9][0-9]*\.[0-9]+)|(0\.[0-9]+)|([1-9][0-9]*)',	Shortest string "0.0"
+        case 2: // Recognized '([1-9][0-9]*\.[0-9]+)|(0\.[0-9]+)|([1-9][0-9]*)|[0]',	Shortest string "0"
+        case 3: // Recognized '([1-9][0-9]*\.[0-9]+)|(0\.[0-9]+)|([1-9][0-9]*)|[0]',	Shortest string "1"
+        case 11: // Recognized '([1-9][0-9]*\.[0-9]+)|(0\.[0-9]+)|([1-9][0-9]*)|[0]',	Shortest string "0.0"
 yylval =  MakeConstNode(yytext);
                                             return (int)Tokens.NUMBER;
             break;
-        case 3: // Recognized '\,',	Shortest string ","
+        case 4: // Recognized '\,',	Shortest string ","
 return (int)Tokens.COMMA;
             break;
-        case 4: // Recognized '\+',	Shortest string "+"
+        case 5: // Recognized '\+',	Shortest string "+"
 return (int)Tokens.PLUS;
             break;
-        case 5: // Recognized '\-',	Shortest string "-"
+        case 6: // Recognized '\-',	Shortest string "-"
 return (int)Tokens.MINUS;
             break;
-        case 6: // Recognized '\*',	Shortest string "*"
+        case 7: // Recognized '\*',	Shortest string "*"
 return (int)Tokens.MUL;
             break;
-        case 7: // Recognized '\/',	Shortest string "/"
+        case 8: // Recognized '\/',	Shortest string "/"
 return (int)Tokens.DIVIDE;
             break;
-        case 8: // Recognized '\(',	Shortest string "("
+        case 9: // Recognized '\(',	Shortest string "("
 return (int)Tokens.LEFT_PARENTHESES;
             break;
-        case 9: // Recognized '\)',	Shortest string ")"
+        case 10: // Recognized '\)',	Shortest string ")"
 return (int)Tokens.RIGHT_PARENTHESES;
             break;
         default:
