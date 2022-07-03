@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1656822545957,
+  "lastUpdate": 1656822657756,
   "repoUrl": "https://github.com/zyxia/MathParser",
   "entries": {
     "Benchmark.Net Benchmark": [
@@ -1200,6 +1200,36 @@ window.BENCHMARK_DATA = {
             "value": 3533.4415517457774,
             "unit": "ns",
             "range": "± 172.82522373819435"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "969919860@qq.com",
+            "name": "xiazeye",
+            "username": "zyxia"
+          },
+          "committer": {
+            "email": "969919860@qq.com",
+            "name": "xiazeye",
+            "username": "zyxia"
+          },
+          "distinct": true,
+          "id": "4663d8d2621ba8ea5efb31a889f6c507a8e513bb",
+          "message": "test",
+          "timestamp": "2022-07-03T12:29:18+08:00",
+          "tree_id": "6f3d16c8fe18b4be3ad45470c96551a5e771f03d",
+          "url": "https://github.com/zyxia/MathParser/commit/4663d8d2621ba8ea5efb31a889f6c507a8e513bb"
+        },
+        "date": 1656822656957,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "BenchMark.Benchs.ToFunction",
+            "value": 4220.562549591064,
+            "unit": "ns",
+            "range": "± 52.34297201704428"
           }
         ]
       }
