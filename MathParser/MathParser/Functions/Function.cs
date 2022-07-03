@@ -67,7 +67,10 @@ namespace MathParser.Functions
         {
             throw new NotImplementedException();
         }
-
+        public float GetValueByT(float t)
+        {
+            return this.GetValue(new Param("t", t));
+        }
         public float GetValueByUV(float u, float v)
         {
             List<Param> pList = new List<Param>(2);
