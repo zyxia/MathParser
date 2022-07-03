@@ -619,7 +619,7 @@ namespace QUT.GplexBuffers
         };
 
 
-        [SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline")]
+        //[SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline")]
         // Reason for suppression: cannot have self-reference in array initializer.
         static Guesser()
         {

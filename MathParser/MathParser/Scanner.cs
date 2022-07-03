@@ -57,12 +57,12 @@ namespace MathParser
 
      public abstract class ScanBase
     {
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yylex")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yylex")]
+        //[SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yylex")]
+        //[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yylex")]
         public abstract int yylex();
 
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yywrap")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yywrap")]
+        //[SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yywrap")]
+        //[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yywrap")]
         protected virtual bool yywrap() { return true; }
 
 #if BABEL
@@ -115,7 +115,7 @@ namespace MathParser
         /// <summary>
         /// The input buffer for this scanner.
         /// </summary>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+  
         public ScanBuff Buffer { get { return buffer; } }
         
         private static int GetMaxParseToken() {
@@ -268,8 +268,7 @@ int NextState() {
         /// This method creates a buffer context record from
         /// the current buffer object, together with some
         /// scanner state values. 
-        /// </summary>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        /// </summary> 
         BufferContext MkBuffCtx()
 		{
 			BufferContext rslt;
@@ -283,8 +282,7 @@ int NextState() {
         /// <summary>
         /// This method restores the buffer value and allied
         /// scanner state from the given context record value.
-        /// </summary>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        /// </summary> 
         void RestoreBuffCtx(BufferContext value)
 		{
 			this.buffer = value.buffSv;
@@ -350,7 +348,7 @@ int NextState() {
             tokECol = cCol;
         }
 
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+ 
         int Peek()
         {
             int rslt, codeSv = code, cColSv = cCol, lNumSv = lNum, bPosSv = buffer.Pos;
@@ -368,7 +366,7 @@ int NextState() {
         /// </summary>
         /// <param name="source">the input string</param>
         /// <param name="offset">starting offset in the string</param>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+    
         public void SetSource(string source, int offset)
         {
             this.buffer = ScanBuff.GetBuffer(source);
@@ -383,7 +381,7 @@ int NextState() {
         /// Create and initialize a LineBuff buffer object for this scanner
         /// </summary>
         /// <param name="source">the list of input strings</param>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+  
         public void SetSource(IList<string> source)
         {
             this.buffer = ScanBuff.GetBuffer(source);
@@ -400,7 +398,7 @@ int NextState() {
         /// StreamBuff is buffer for 8-bit byte files.
         /// </summary>
         /// <param name="source">the input byte stream</param>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+     
         public void SetSource(Stream source)
         {
             this.buffer = ScanBuff.GetBuffer(source);
@@ -419,7 +417,7 @@ int NextState() {
         /// <param name="source">the input text file</param>
         /// <param name="fallbackCodePage">Code page to use if file has
         /// no BOM. For 0, use machine default; for -1, 8-bit binary</param>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+  
         public void SetSource(Stream source, int fallbackCodePage)
         {
             this.buffer = ScanBuff.GetBuffer(source, fallbackCodePage);
@@ -459,9 +457,9 @@ int NextState() {
 
         // ======== AbstractScanner<> Implementation =========
 
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yylex")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yylex")]
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        //[SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yylex")]
+        //[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yylex")]
         public override int yylex()
         {
             // parserMax is set by reflecting on the Tokens
@@ -472,19 +470,16 @@ int NextState() {
             return next;
         }
         
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+       
         int yypos { get { return tokPos; } }
         
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        
         int yyline { get { return tokLin; } }
         
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+ 
         int yycol { get { return tokCol; } }
 
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yytext")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yytext")]
-        public string yytext
+         public string yytext
         {
             get 
             {
@@ -500,8 +495,7 @@ int NextState() {
         /// yytext is also re-evaluated. 
         /// </summary>
         /// <param name="n">The number of codepoints to consume</param>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        void yyless(int n)
+         void yyless(int n)
         {
             buffer.Pos = tokPos;
             // Must read at least one char, so set before start.
@@ -523,7 +517,7 @@ int NextState() {
         /// Removes the last "n" code points from the pattern.
         /// </summary>
         /// <param name="n">The number to remove</param>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         void _yytrunc(int n) { yyless(yyleng - n); }
         
         //
@@ -539,9 +533,9 @@ int NextState() {
         /// The length of the pattern in codepoints (not the same as 
         /// string-length if the pattern contains any surrogate pairs).
         /// </summary>
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yyleng")]
-        [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yyleng")]
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        //[SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "yyleng")]
+        //[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId = "yyleng")]
         public int yyleng
         {
             get {
@@ -569,7 +563,7 @@ int NextState() {
         
         // ============ methods available in actions ==============
 
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal int YY_START {
             get { return currentScOrd; }
             set { currentScOrd = value; 
@@ -577,7 +571,7 @@ int NextState() {
             } 
         }
         
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal void BEGIN(int next) {
             currentScOrd = next;
             currentStart = startState[next];
@@ -719,10 +713,10 @@ return (int)Tokens.RIGHT_PARENTHESES;
         // ============= End of the tokenizer code ================
 
 #if STACK        
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal void yy_clear_stack() { scStack.Clear(); }
         
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal int yy_top_state() { return scStack.Peek(); }
         
         internal void yy_push_state(int state)
@@ -741,7 +735,7 @@ return (int)Tokens.RIGHT_PARENTHESES;
         }
  #endif // STACK
 
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        //[SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal void ECHO() { Console.Out.Write(yytext); }
         
 #region UserCodeSection
