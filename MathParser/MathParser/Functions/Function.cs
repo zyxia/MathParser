@@ -18,6 +18,7 @@ namespace TokenParser.Functions
         {
             throw new NotImplementedException();
         }
+
         /// <summary>
         /// Gets the derivative using the specified param name
         /// </summary>
@@ -27,6 +28,11 @@ namespace TokenParser.Functions
         public virtual Function GetDerivative(string name)
         {
             throw new NotImplementedException();
+        }
+
+        public Function GetDerivativeByT()
+        {
+            return this.GetDerivative("t");
         }
 
         /// <summary>
@@ -62,6 +68,14 @@ namespace TokenParser.Functions
             throw new NotImplementedException();
         }
 
+        public float GetValueByUV(float u, float v)
+        {
+            List<Param> pList = new List<Param>(2);
+            pList.Add(new Param("u", u));
+            pList.Add(new Param("v", v));
+            return this.GetValue(pList);
+        }
+
         /// <summary>
         /// Gets the value
         /// </summary>
@@ -92,7 +106,7 @@ namespace TokenParser.Functions
             var func = Const(value);
             return func.GetValue();
         }
- 
+
         public override string ToString()
         {
             throw new NotImplementedException();
