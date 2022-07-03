@@ -47,6 +47,8 @@ namespace Test.MathParser
             Assert.AreEqual(dv ,1.0f);
             function = "3".ToFunction();
             Assert.AreEqual(  3.0f,function.GetValueByT(0));
+            function = "0".ToFunction();
+            Assert.AreEqual(  0.0f,function.GetValueByT(0));
         }
         private static void TestMathFormat(string value)
         {

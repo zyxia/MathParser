@@ -14,8 +14,7 @@ RealNum              ([1-9]\d*\.?\d*)|(-?0\.\d*[1-9])
  
 //NUMBER SIN COS VIRTUAL  
 //PLUS MINUS MUL DIVIDE
-%x Ident       
-%x RealNum     
+  
 
 // =============================================================
 %%  // Start of rules
@@ -42,7 +41,7 @@ RealNum              ([1-9]\d*\.?\d*)|(-?0\.\d*[1-9])
                                         yylval =  MakeVariableNode(yytext);
                                         return (int)Tokens.WORLD;
                                }
-([1-9][0-9]*\.[0-9]+)|(0\.[0-9]+)|([1-9][0-9]*) {
+([1-9][0-9]*\.[0-9]+)|(0\.[0-9]+)|([1-9][0-9]*)|[0] {
                                             //System.Console.WriteLine(yytext);
                                             yylval =  MakeConstNode(yytext);
                                             return (int)Tokens.NUMBER;
