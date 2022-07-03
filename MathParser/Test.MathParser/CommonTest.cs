@@ -8,16 +8,10 @@ namespace Test.TokenParser
     {
         public static void ParseTest(string value)
         {
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
-            writer.WriteLine(value);
-            writer.Flush();
-            stream.Seek(0, SeekOrigin.Begin);
-            var scanner = new Scanner(stream);
+            var scanner = new Scanner();
             var parser = new Parser(scanner);
+            scanner.SetSource(value,0);
             Assert.IsTrue(parser.Parse());
-            writer.Dispose();
-            stream.Dispose();
         }
     }
 }

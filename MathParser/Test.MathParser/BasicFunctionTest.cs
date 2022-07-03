@@ -50,5 +50,10 @@ namespace Test.TokenParser
         {
            CommonTest. ParseTest("2.7*sin(-2.03*x)");  
         }
+        [Test]
+        public void VariableT()
+        {
+            CommonTest.ParseTest("t");  
+        }
     }
 }

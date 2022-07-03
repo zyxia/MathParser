@@ -28,9 +28,8 @@ namespace Test.MathParser
         }
         [Test]
         public void GetValueTest()
-        { 
-            const string sValue = "2*sin(t)";
-            var function = sValue.ToFunction();
+        {  
+            var function = "2*sin(t)".ToFunction();
             var value = function.GetValue(new Param("t", 0));
             var dFunction = function.GetDerivative("t");
             var value2 =dFunction.GetValue(new Param("t", 0));
@@ -38,6 +37,16 @@ namespace Test.MathParser
             value = function.GetValue(new Param("t", (float)(Math.PI/2)));
             Assert.AreEqual(value, 2.0f);
             Assert.AreEqual(value2,2.0f);
+        }
+        [Test]
+        public void GetValueTest2()
+        {  
+            var function = "t".ToFunction();
+            Assert.AreEqual(function.GetValueByT(3.0f),3.0f);
+            var dv = function.GetDerivativeByT().GetValueByT(3.0f);
+            Assert.AreEqual(dv ,1.0f);
+            function = "3".ToFunction();
+            Assert.AreEqual(  3.0f,function.GetValueByT(0));
         }
         private static void TestMathFormat(string value)
         {

@@ -20,6 +20,7 @@ namespace MathParser
         public static Function ToFunction(this string value)
         { 
             scanner.SetSource(value,0);
+            parser.Reset();
             if (!parser.Parse())
             {
                 return null;
