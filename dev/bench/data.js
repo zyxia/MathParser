@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1656855390833,
+  "lastUpdate": 1656855610664,
   "repoUrl": "https://github.com/zyxia/MathParser",
   "entries": {
     "Benchmark.Net Benchmark": [
@@ -1980,6 +1980,36 @@ window.BENCHMARK_DATA = {
             "value": 4113.388170514788,
             "unit": "ns",
             "range": "± 68.80867708016672"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "xia969919860@163.com",
+            "name": "yeyeye",
+            "username": "zyxia"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "9e9d395b261e57146ee05db95e31a483efb547b5",
+          "message": "18-add-getvaluebyt-functiondelete-analyse-attributeso-can-used-in-uni… (#22)\n\n* 18-add-getvaluebyt-functiondelete-analyse-attributeso-can-used-in-unity-without-dotnet-analyse-dll\r\n\r\n* workflow dotnet version change\r\n\r\n* dotnet version test\r\n\r\n* test\r\n\r\n* test",
+          "timestamp": "2022-07-03T21:33:37+08:00",
+          "tree_id": "8cffbf65be070dfda8cd9efdce9c4519ef6a5080",
+          "url": "https://github.com/zyxia/MathParser/commit/9e9d395b261e57146ee05db95e31a483efb547b5"
+        },
+        "date": 1656855608065,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "BenchMark.Benchs.ToFunction",
+            "value": 3449.573230743408,
+            "unit": "ns",
+            "range": "± 37.13673212609054"
           }
         ]
       }
