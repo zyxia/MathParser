@@ -13,11 +13,14 @@ namespace MathParser
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Scanner.Node GetRootNodeInline()
         {
-            return MathParser.Scanner.Node.Root;
+            return MathParser.Scanner.Node.Root ?? (MathParser.Scanner.Node.Root = this.CurrentSemanticValue);
         }
-        public Scanner.Node GetRootNode()
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void Reset()
         {
-            return MathParser.Scanner.Node.Root;
+            MathParser.Scanner.Node.Root = null;
+            this.CurrentSemanticValue = null;
         }
     }
 }
