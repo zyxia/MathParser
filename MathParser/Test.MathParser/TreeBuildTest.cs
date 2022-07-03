@@ -1,9 +1,9 @@
 ﻿using System;
+using MathParser;
+using MathParser.Functions;
 using NUnit.Framework;
-using TokenParser;
-using TokenParser.Functions;
 
-namespace Test.TokenParser
+namespace Test.MathParser
 {
     internal class TreeBuildTest
     {
@@ -28,7 +28,7 @@ namespace Test.TokenParser
         }
         [Test]
         public void GetValueTest()
-        {
+        { 
             const string sValue = "2*sin(t)";
             var function = sValue.ToFunction();
             var value = function.GetValue(new Param("t", 0));

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 
-namespace TokenParser.Functions
+namespace MathParser.Functions
 {
     internal class ConstValueFunction : Function
     {

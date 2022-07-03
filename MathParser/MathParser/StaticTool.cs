@@ -1,8 +1,6 @@
-using System.IO;
-using MathParser;
-using TokenParser.Functions;
+using MathParser.Functions; 
 
-namespace TokenParser
+namespace MathParser
 {
     /// <summary>
     /// The static tool class

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TokenParser.Functions
+namespace MathParser.Functions
 {
     /// <summary> 
     /// The Base Function class
