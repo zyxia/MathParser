@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1656830705198,
+  "lastUpdate": 1656832358287,
   "repoUrl": "https://github.com/zyxia/MathParser",
   "entries": {
     "Benchmark.Net Benchmark": [
@@ -1680,6 +1680,36 @@ window.BENCHMARK_DATA = {
             "value": 3662.717819213867,
             "unit": "ns",
             "range": "± 69.84023712169041"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "xia969919860@163.com",
+            "name": "yeyeye",
+            "username": "zyxia"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "13709bf563dd7f107a0f1d734e558ad8b0b8ab88",
+          "message": "14 add publish workflow (#15)\n\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* del build dic\r\n\r\n* add build dir\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test\r\n\r\n* test",
+          "timestamp": "2022-07-03T15:10:58+08:00",
+          "tree_id": "6bb915bfb793a851fc2d35bf96e0aa541b543489",
+          "url": "https://github.com/zyxia/MathParser/commit/13709bf563dd7f107a0f1d734e558ad8b0b8ab88"
+        },
+        "date": 1656832357447,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "BenchMark.Benchs.ToFunction",
+            "value": 3588.503217935562,
+            "unit": "ns",
+            "range": "± 67.33008393533203"
           }
         ]
       }
