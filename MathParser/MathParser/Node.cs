@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using TokenParser.Functions;
+using MathParser.Functions;
 
 namespace MathParser
 {

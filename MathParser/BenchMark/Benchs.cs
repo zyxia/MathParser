@@ -2,8 +2,9 @@
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Validators;
-using TokenParser;
-using TokenParser.Functions;
+using MathParser;
+using MathParser.Functions;
+
 
 public class AllowNonOptimized : ManualConfig
 {

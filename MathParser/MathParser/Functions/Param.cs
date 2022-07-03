@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace TokenParser.Functions
+namespace MathParser.Functions
 {
     public struct Param:IEqualityComparer<Param>
     {
@@ -23,7 +23,7 @@ namespace TokenParser.Functions
 
         public int GetHashCode(Param obj)
         {
-            return HashCode.Combine(obj.Name, obj.Value);
+            return  (obj.Name, obj.Value).GetHashCode();
         }
     }
 }
