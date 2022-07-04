@@ -2,7 +2,7 @@
 using MathParser;
 using NUnit.Framework;
 
-namespace Test.TokenParser
+namespace Test.MathParser
 {
     internal static class CommonTest
     {

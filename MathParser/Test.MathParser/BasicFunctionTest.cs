@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Test.TokenParser
+namespace Test.MathParser
 {
     internal class BasicFunctionTest
     {

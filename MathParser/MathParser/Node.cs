@@ -29,6 +29,68 @@ namespace MathParser
                 throw new NotImplementedException();
             }
         }
+        internal class TanNode : Node
+        {
+            Node _child;
+
+            public TanNode(Node child)
+            {
+                this._child = child;
+            }
+
+            public override bool Contain(string param)
+            {
+                return _child.Contain(param);
+            }
+
+            public override int ParamCount()
+            {
+                return _child.ParamCount();
+            }
+
+            public override void GetParamList(List<string> paramList)
+            {
+                _child.GetParamList(paramList);
+            }
+
+            public override void ToFunction(out Function function)
+            {
+                _child.ToFunction(out var @internal);
+                function = new Tan(@internal);
+            }
+        }
+        
+        
+        internal class SecNode : Node
+        {
+            Node _child;
+
+            public SecNode(Node child)
+            {
+                this._child = child;
+            }
+
+            public override bool Contain(string param)
+            {
+                return _child.Contain(param);
+            }
+
+            public override int ParamCount()
+            {
+                return _child.ParamCount();
+            }
+
+            public override void GetParamList(List<string> paramList)
+            {
+                _child.GetParamList(paramList);
+            }
+
+            public override void ToFunction(out Function function)
+            {
+                _child.ToFunction(out var @internal);
+                function = new Sec(@internal);
+            }
+        }
 
         internal class SinNode : Node
         {
