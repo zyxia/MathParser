@@ -50,6 +50,20 @@ namespace Test.MathParser
             function = "0".ToFunction();
             Assert.AreEqual(  0.0f,function.GetValueByT(0));
         }
+        
+        [Test]
+        public void GetValueTest3()
+        {  
+            var function = "tan(t)".ToFunction();
+            Assert.AreEqual(0.0f,function.GetValueByT(0.0f));
+            Assert.AreEqual(1.0f,function.GetValueByT((float) Math.PI / 4));
+            Assert.AreEqual( "(sec(t)*sec(t))",function.GetDerivativeByT().Reduce().Reduce().ToString().Replace(" ",""));
+            
+            function = "sec(t)".ToFunction();
+            Assert.AreEqual(1.0f,function.GetValueByT(0.0f)); 
+            Assert.AreEqual( "(tan(t)*sec(t))",function.GetDerivativeByT().Reduce().Reduce().ToString().Replace(" ",""));
+
+        }
         private static void TestMathFormat(string value)
         {
             var function = value.ToFunction();

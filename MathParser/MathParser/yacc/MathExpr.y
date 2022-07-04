@@ -9,7 +9,7 @@
 %partial 
 
 
-%token WORLD NUMBER SIN COS VIRTUAL 
+%token WORLD NUMBER SIN COS VIRTUAL TAN SEC
 %token PLUS MINUS MUL DIVIDE
 %token COMMA LEFT_PARENTHESES RIGHT_PARENTHESES
 
@@ -55,6 +55,16 @@ expres_s  :    LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
         |   COS LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
         {
             $$ = MathParser.Scanner.MakeCosNode($3);
+            MathParser.Scanner.Node.Root = $$;
+        }
+        |   TAN LEFT_PARENTHESES expres_s RIGHT_PARENTHESES 
+        {
+            $$ = MathParser.Scanner.MakeTanNode($3);
+            MathParser.Scanner.Node.Root = $$;
+        } 
+        |   SEC LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
+        {
+            $$ = MathParser.Scanner.MakeSecNode($3);
             MathParser.Scanner.Node.Root = $$;
         }
         |   MINUS expres_s %prec UMINUS  

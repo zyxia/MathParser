@@ -31,6 +31,16 @@ RealNum              ([1-9]\d*\.?\d*)|(-?0\.\d*[1-9])
                                             //System.Console.WriteLine(yytext);
                                             return (int)Tokens.COS;
                                         }
+                                        if ( yytext == "tan")
+                                        {
+                                            //System.Console.WriteLine(yytext);
+                                            return (int)Tokens.TAN;
+                                        }
+                                        if ( yytext == "sec")
+                                        {
+                                            //System.Console.WriteLine(yytext);
+                                            return (int)Tokens.SEC;
+                                        }
                                         if ( yytext == "virtual")
                                         {
                                             //System.Console.WriteLine(yytext);
@@ -69,6 +79,12 @@ public static Node MakeSinNode(Node rhs ) {
 }
 public static Node MakeCosNode(Node rhs ) {
   return new CosNode( rhs );
+}
+public static Node MakeTanNode(Node rhs ) {
+ return new TanNode( rhs );
+}
+public static Node MakeSecNode(Node rhs ) {
+  return new SecNode( rhs );
 }
 public static Node MakePlusNode(Node lfs,Node rhs ) {
  return new PlusNode( lfs,rhs );
