@@ -22,9 +22,9 @@ namespace MathParser.Functions
             throw new NotImplementedException();
         }
 
-        public override Function Reduce()
+        public override Function ReduceOnce()
         {
-            @internal = @internal.Reduce();
+            @internal = @internal.ReduceOnce();
             if (@internal is ConstValueFunction && this.GetValue() == 0)
             {
                 return new ConstValueFunction(0);
@@ -55,7 +55,7 @@ namespace MathParser.Functions
         {
             return (float) Math.Cos(@internal.GetValue(param));
         }
-
+        
         public override Function Clone()
         {
             return new Cos(@internal.Clone());

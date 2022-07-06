@@ -57,18 +57,20 @@ namespace Test.MathParser
             var function = "tan(t)".ToFunction();
             Assert.AreEqual(0.0f,function.GetValueByT(0.0f));
             Assert.AreEqual(1.0f,function.GetValueByT((float) Math.PI / 4));
-            Assert.AreEqual( "(sec(t)*sec(t))",function.GetDerivativeByT().Reduce().Reduce().ToString().Replace(" ",""));
+            Assert.AreEqual( "(sec(t)*sec(t))",function.GetDerivativeByT().ReduceOnce().ReduceOnce().ToString().Replace(" ",""));
             
             function = "sec(t)".ToFunction();
             Assert.AreEqual(1.0f,function.GetValueByT(0.0f)); 
-            Assert.AreEqual( "(tan(t)*sec(t))",function.GetDerivativeByT().Reduce().Reduce().ToString().Replace(" ",""));
+            Assert.AreEqual( "(tan(t)*sec(t))",function.GetDerivativeByT().ReduceOnce().ReduceOnce().ToString().Replace(" ",""));
 
+
+            "(3+(u*cos(0.5*v)))*cos(v)".ToFunction().GetValueByUV(0, 0);
         }
         private static void TestMathFormat(string value)
         {
             var function = value.ToFunction();
             var functionD = function.GetDerivative("x");
-            functionD = functionD.Reduce();
+            functionD = functionD.ReduceOnce();
             Console.WriteLine("the x partial  derivative of " + value + " is \n" + functionD.ToString());
         }
     }

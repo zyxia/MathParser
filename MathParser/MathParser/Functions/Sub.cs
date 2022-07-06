@@ -13,16 +13,16 @@ namespace MathParser.Functions
             this.right = right;
         }
 
-        public override Function Reduce()
+        public override Function ReduceOnce()
         {
-            var l = left.Reduce();
-            var r = right.Reduce();
+            var l = left.ReduceOnce();
+            var r = right.ReduceOnce();
             switch (l)
             {
                 case ConstValueFunction when r is ConstValueFunction:
                     return new ConstValueFunction(l.GetValue() - r.GetValue());
                 case ConstValueFunction when l.GetValue() == 0.0f:
-                    return new MulFunction(new ConstValueFunction(-1), r).Reduce();
+                    return new MulFunction(new ConstValueFunction(-1), r).ReduceOnce();
             }
 
             if (r is ConstValueFunction && r.GetValue() == 0.0f)

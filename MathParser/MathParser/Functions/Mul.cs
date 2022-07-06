@@ -14,10 +14,10 @@ namespace MathParser.Functions
             this.right = right;
         }
 
-        public override Function Reduce()
+        public override Function ReduceOnce()
         {
-            var l = left.Reduce();
-            var r = right.Reduce();
+            var l = left.ReduceOnce();
+            var r = right.ReduceOnce();
             if (l is ConstValueFunction && r is ConstValueFunction)
             {
                 return new ConstValueFunction(l.GetValue() * r.GetValue());

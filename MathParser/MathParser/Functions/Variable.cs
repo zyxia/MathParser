@@ -12,7 +12,7 @@ namespace MathParser.Functions
             Name = v;
         }
 
-        public override Function Reduce()
+        public override Function ReduceOnce()
         {
             return this;
         }

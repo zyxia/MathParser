@@ -11,7 +11,7 @@ namespace MathParser.Functions
         {
             Value = v;
         }
-        public override Function Reduce()
+        public override Function ReduceOnce()
         { 
             return this;
         }

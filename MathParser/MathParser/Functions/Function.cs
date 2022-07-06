@@ -14,11 +14,24 @@ namespace MathParser.Functions
         /// </summary>
         /// <exception cref="NotImplementedException"></exception>
         /// <returns>The function</returns>
-        public virtual Function Reduce()
+        public virtual Function ReduceOnce()
         {
             throw new NotImplementedException();
         }
 
+        
+        public Function SimplestReduce()
+        {
+            var r1 = this.ReduceOnce();
+            var r2 = r1.ReduceOnce();
+            
+            while (r1.ToString() != r2.ToString())
+            {
+                r1 = r2;
+                r2 = r1.ReduceOnce();
+            }
+            return r1;
+        }
         /// <summary>
         /// Gets the derivative using the specified param name
         /// </summary>
@@ -107,6 +120,7 @@ namespace MathParser.Functions
         public float GetValue(List<Param> value)
         {
             var func = Const(value);
+            func = func.SimplestReduce();
             return func.GetValue();
         }
 
