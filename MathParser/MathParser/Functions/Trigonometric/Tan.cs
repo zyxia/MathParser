@@ -23,9 +23,9 @@ namespace MathParser.Functions
             throw new NotImplementedException();
         }
 
-        public override Function Reduce()
+        public override Function ReduceOnce()
         {
-            @internal = @internal.Reduce();
+            @internal = @internal.ReduceOnce();
             if (@internal is ConstValueFunction && this.GetValue() == 1.0f)
             {
                 return new ConstValueFunction(1.0f);

@@ -12,9 +12,9 @@ namespace MathParser.Functions
             this.@internal = @internal;
         }
 
-        public override Function Reduce()
+        public override Function ReduceOnce()
         {
-            @internal = @internal.Reduce();
+            @internal = @internal.ReduceOnce();
             if (@internal is ConstValueFunction && this.GetValue() == 0)
             {
                 return new ConstValueFunction(0);
