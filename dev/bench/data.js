@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1657124523694,
+  "lastUpdate": 1657124559068,
   "repoUrl": "https://github.com/zyxia/MathParser",
   "entries": {
     "Benchmark.Net Benchmark": [
@@ -2430,6 +2430,36 @@ window.BENCHMARK_DATA = {
             "value": 4154.362773895264,
             "unit": "ns",
             "range": "± 80.14899084108504"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "xia969919860@163.com",
+            "name": "yeyeye",
+            "username": "zyxia"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "8c23abc0c39064dcf2903eb23c25defe06131de5",
+          "message": "27 add tan secarctanetc trangle functions (#28)\n\n* add tan and sec\r\n\r\n* comment analyse attribute",
+          "timestamp": "2022-07-04T21:07:23+08:00",
+          "tree_id": "031320fe5b831ce9d26552207b289889a14b208b",
+          "url": "https://github.com/zyxia/MathParser/commit/8c23abc0c39064dcf2903eb23c25defe06131de5"
+        },
+        "date": 1657124555122,
+        "tool": "benchmarkdotnet",
+        "benches": [
+          {
+            "name": "BenchMark.Benchs.ToFunction",
+            "value": 3098.2247279240537,
+            "unit": "ns",
+            "range": "± 25.351273160578025"
           }
         ]
       }
