@@ -6,17 +6,17 @@ namespace MathParser.Functions;
 
 public struct Function3
 {
-    private Function _x;
-    private Function _y;
-    private Function _z;
+    internal Function X;
+    internal Function Y;
+    internal Function Z;
 
     public Function3 ReduceOnce()
     {
         return new Function3()
         {
-            _x = this._x.ReduceOnce(),
-            _y = this._y.ReduceOnce(),
-            _z = this._z.ReduceOnce(),
+            X = this.X.ReduceOnce(),
+            Y = this.Y.ReduceOnce(),
+            Z = this.Z.ReduceOnce(),
         };
     }
 
@@ -24,9 +24,9 @@ public struct Function3
     {
         return new Function3()
         {
-            _x = this._x.SimplestReduce(),
-            _y = this._y.SimplestReduce(),
-            _z = this._z.SimplestReduce(),
+            X = this.X.SimplestReduce(),
+            Y = this.Y.SimplestReduce(),
+            Z = this.Z.SimplestReduce(),
         };
     }
 
@@ -34,9 +34,9 @@ public struct Function3
     {
         return new Function3()
         {
-            _x = this._x.GetDerivative(name),
-            _y = this._y.GetDerivative(name),
-            _z = this._z.GetDerivative(name),
+            X = this.X.GetDerivative(name),
+            Y = this.Y.GetDerivative(name),
+            Z = this.Z.GetDerivative(name),
         };
     }
 
@@ -44,9 +44,9 @@ public struct Function3
     {
         return new Function3()
         {
-            _x = this._x.GetDerivativeByT(),
-            _y = this._y.GetDerivativeByT(),
-            _z = this._z.GetDerivativeByT(),
+            X = this.X.GetDerivativeByT(),
+            Y = this.Y.GetDerivativeByT(),
+            Z = this.Z.GetDerivativeByT(),
         };
     }
 
@@ -60,9 +60,9 @@ public struct Function3
     {
         return new Function3()
         {
-            _x = this._x.Const(value),
-            _y = this._y.Const(value),
-            _z = this._z.Const(value),
+            X = this.X.Const(value),
+            Y = this.Y.Const(value),
+            Z = this.Z.Const(value),
         };
     }
 
@@ -76,9 +76,9 @@ public struct Function3
     {
         return new Function3()
         {
-            _x = this._x.Const(value),
-            _y = this._y.Const(value),
-            _z = this._z.Const(value),
+            X = this.X.Const(value),
+            Y = this.Y.Const(value),
+            Z = this.Z.Const(value),
         };
     }
 
@@ -91,9 +91,9 @@ public struct Function3
     public Vector3 GetValue(Param value)
     {
         return new Vector3(
-            this._x.GetValue(value),
-            this._y.GetValue(value),
-            this._z.GetValue(value)
+            this.X.GetValue(value),
+            this.Y.GetValue(value),
+            this.Z.GetValue(value)
         );
     }
 
@@ -113,9 +113,9 @@ public struct Function3
     public Vector3 GetValue()
     {
         return new Vector3(
-            this._x.GetValue(),
-            this._y.GetValue(),
-            this._z.GetValue()
+            this.X.GetValue(),
+            this.Y.GetValue(),
+            this.Z.GetValue()
         );
     }
 
@@ -128,9 +128,9 @@ public struct Function3
     {
         return new Function3()
         {
-            _x = this._x.Clone(),
-            _y = this._y.Clone(),
-            _z = this._z.Clone(),
+            X = this.X.Clone(),
+            Y = this.Y.Clone(),
+            Z = this.Z.Clone(),
         };
     }
 
@@ -148,6 +148,6 @@ public struct Function3
 
     public override string ToString()
     {
-        return $@"x={this._x.ToString()},y={this._y.ToString()},z={this._z.ToString()}";
+        return $@"x={this.X.ToString()},y={this.Y.ToString()},z={this.Z.ToString()}";
     }
 }
