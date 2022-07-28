@@ -1,6 +1,3 @@
-
-
-
 %namespace MathParser
 
 %YYSTYPE MathParser.Scanner.Node
@@ -9,7 +6,7 @@
 %partial 
 
 
-%token WORLD NUMBER SIN COS VIRTUAL TAN SEC
+%token WORLD NUMBER SIN COS VIRTUAL TAN SEC CROSS  DOT 
 %token PLUS MINUS MUL DIVIDE
 %token COMMA LEFT_PARENTHESES RIGHT_PARENTHESES
 
@@ -67,6 +64,11 @@ expres_s  :    LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
             $$ = MathParser.Scanner.MakeSecNode($3);
             MathParser.Scanner.Node.Root = $$;
         }
+        |   CROSS LEFT_PARENTHESES expres_s COMMA expres_s RIGHT_PARENTHESES
+            {
+                $$ = MathParser.Scanner.MakeSecNode($3);
+                MathParser.Scanner.Node.Root = $$;
+            }
         |   MINUS expres_s %prec UMINUS  
 ;
 list: expres_s  {yyerrok(); };

@@ -1,0 +1,727 @@
+<html><head><title>.\MathExpr.y</title></head>
+<body bgcolor="white">
+<hr><pre>
+<b>Grammar .\MathExpr.y - 2022/7/27 23:29:57</b>
+
+<a name="prod1">    1</a> $accept: list EOF
+             ;
+
+<a name="prod2">    2</a> expres_s: LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
+<a name="prod3">    3</a>         | expres_s PLUS expres_s
+<a name="prod4">    4</a>         | expres_s MINUS expres_s
+<a name="prod5">    5</a>         | expres_s MUL expres_s
+<a name="prod6">    6</a>         | expres_s DIVIDE expres_s
+<a name="prod7">    7</a>         | WORLD
+<a name="prod8">    8</a>         | NUMBER
+<a name="prod9">    9</a>         | SIN LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
+<a name="prod10">   10</a>         | COS LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
+<a name="prod11">   11</a>         | TAN LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
+<a name="prod12">   12</a>         | SEC LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
+<a name="prod13">   13</a>         | CROSS LEFT_PARENTHESES expres_s COMMA expres_s RIGHT_PARENTHESES
+<a name="prod14">   14</a>         | MINUS expres_s
+              ;
+
+<a name="prod15">   15</a> list: expres_s
+          ;
+<b><a name="state0">State</a> <a href="#state0">0</a></b>
+
+  <b>Kernel Items</b>
+    1 $accept: . list EOF
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    list           go to state <a href="#state1">1</a>
+    expres_s       go to state <a href="#state3">3</a>
+
+
+<b><a name="state1">State</a> <a href="#state1">1</a></b>
+
+  <b>Kernel Items</b>
+    1 $accept: list . EOF
+  <b>Parser Actions</b>
+    EOF            shift, and go to state <a href="#state2">2</a>
+
+
+
+<b><a name="state2">State</a> <a href="#state2">2</a></b>
+
+  <b>Kernel Items</b>
+    1 $accept: list EOF .
+	-lookahead: {  }
+  <b>Parser Actions</b>
+    error          reduce using <a href="#prod1">rule 1</a> ($accept)
+    EOF            reduce using <a href="#prod1">rule 1</a> ($accept)
+    WORLD          reduce using <a href="#prod1">rule 1</a> ($accept)
+    NUMBER         reduce using <a href="#prod1">rule 1</a> ($accept)
+    SIN            reduce using <a href="#prod1">rule 1</a> ($accept)
+    COS            reduce using <a href="#prod1">rule 1</a> ($accept)
+    VIRTUAL        reduce using <a href="#prod1">rule 1</a> ($accept)
+    TAN            reduce using <a href="#prod1">rule 1</a> ($accept)
+    SEC            reduce using <a href="#prod1">rule 1</a> ($accept)
+    CROSS          reduce using <a href="#prod1">rule 1</a> ($accept)
+    DOT            reduce using <a href="#prod1">rule 1</a> ($accept)
+    PLUS           reduce using <a href="#prod1">rule 1</a> ($accept)
+    MINUS          reduce using <a href="#prod1">rule 1</a> ($accept)
+    MUL            reduce using <a href="#prod1">rule 1</a> ($accept)
+    DIVIDE         reduce using <a href="#prod1">rule 1</a> ($accept)
+    COMMA          reduce using <a href="#prod1">rule 1</a> ($accept)
+    LEFT_PARENTHESES reduce using <a href="#prod1">rule 1</a> ($accept)
+    RIGHT_PARENTHESES reduce using <a href="#prod1">rule 1</a> ($accept)
+    UMINUS         reduce using <a href="#prod1">rule 1</a> ($accept)
+
+
+
+<b><a name="state3">State</a> <a href="#state3">3</a></b>
+
+  <b>Kernel Items</b>
+    15 list: expres_s .
+	-lookahead: { EOF }
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    PLUS           shift, and go to state <a href="#state4">4</a>
+    MINUS          shift, and go to state <a href="#state6">6</a>
+    MUL            shift, and go to state <a href="#state8">8</a>
+    DIVIDE         shift, and go to state <a href="#state10">10</a>
+    EOF            reduce using <a href="#prod15">rule 15</a> (list)
+
+
+
+<b><a name="state4">State</a> <a href="#state4">4</a></b>
+
+  <b>Kernel Items</b>
+    3 expres_s: expres_s PLUS . expres_s
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state5">5</a>
+
+
+<b><a name="state5">State</a> <a href="#state5">5</a></b>
+
+  <b>Kernel Items</b>
+    3 expres_s: expres_s PLUS expres_s .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod3">rule 3</a> (expres_s)
+    MINUS          reduce using <a href="#prod3">rule 3</a> (expres_s)
+    MUL            shift, and go to state <a href="#state8">8</a>
+    DIVIDE         shift, and go to state <a href="#state10">10</a>
+    EOF            reduce using <a href="#prod3">rule 3</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod3">rule 3</a> (expres_s)
+    COMMA          reduce using <a href="#prod3">rule 3</a> (expres_s)
+
+
+
+<b><a name="state6">State</a> <a href="#state6">6</a></b>
+
+  <b>Kernel Items</b>
+    4 expres_s: expres_s MINUS . expres_s
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state7">7</a>
+
+
+<b><a name="state7">State</a> <a href="#state7">7</a></b>
+
+  <b>Kernel Items</b>
+    4 expres_s: expres_s MINUS expres_s .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod4">rule 4</a> (expres_s)
+    MINUS          reduce using <a href="#prod4">rule 4</a> (expres_s)
+    MUL            shift, and go to state <a href="#state8">8</a>
+    DIVIDE         shift, and go to state <a href="#state10">10</a>
+    EOF            reduce using <a href="#prod4">rule 4</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod4">rule 4</a> (expres_s)
+    COMMA          reduce using <a href="#prod4">rule 4</a> (expres_s)
+
+
+
+<b><a name="state8">State</a> <a href="#state8">8</a></b>
+
+  <b>Kernel Items</b>
+    5 expres_s: expres_s MUL . expres_s
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state9">9</a>
+
+
+<b><a name="state9">State</a> <a href="#state9">9</a></b>
+
+  <b>Kernel Items</b>
+    5 expres_s: expres_s MUL expres_s .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod5">rule 5</a> (expres_s)
+    MINUS          reduce using <a href="#prod5">rule 5</a> (expres_s)
+    MUL            reduce using <a href="#prod5">rule 5</a> (expres_s)
+    DIVIDE         reduce using <a href="#prod5">rule 5</a> (expres_s)
+    EOF            reduce using <a href="#prod5">rule 5</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod5">rule 5</a> (expres_s)
+    COMMA          reduce using <a href="#prod5">rule 5</a> (expres_s)
+
+
+
+<b><a name="state10">State</a> <a href="#state10">10</a></b>
+
+  <b>Kernel Items</b>
+    6 expres_s: expres_s DIVIDE . expres_s
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state11">11</a>
+
+
+<b><a name="state11">State</a> <a href="#state11">11</a></b>
+
+  <b>Kernel Items</b>
+    6 expres_s: expres_s DIVIDE expres_s .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod6">rule 6</a> (expres_s)
+    MINUS          reduce using <a href="#prod6">rule 6</a> (expres_s)
+    MUL            reduce using <a href="#prod6">rule 6</a> (expres_s)
+    DIVIDE         reduce using <a href="#prod6">rule 6</a> (expres_s)
+    EOF            reduce using <a href="#prod6">rule 6</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod6">rule 6</a> (expres_s)
+    COMMA          reduce using <a href="#prod6">rule 6</a> (expres_s)
+
+
+
+<b><a name="state12">State</a> <a href="#state12">12</a></b>
+
+  <b>Kernel Items</b>
+    2 expres_s: LEFT_PARENTHESES . expres_s RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state13">13</a>
+
+
+<b><a name="state13">State</a> <a href="#state13">13</a></b>
+
+  <b>Kernel Items</b>
+    2 expres_s: LEFT_PARENTHESES expres_s . RIGHT_PARENTHESES
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    RIGHT_PARENTHESES shift, and go to state <a href="#state14">14</a>
+    PLUS           shift, and go to state <a href="#state4">4</a>
+    MINUS          shift, and go to state <a href="#state6">6</a>
+    MUL            shift, and go to state <a href="#state8">8</a>
+    DIVIDE         shift, and go to state <a href="#state10">10</a>
+
+
+
+<b><a name="state14">State</a> <a href="#state14">14</a></b>
+
+  <b>Kernel Items</b>
+    2 expres_s: LEFT_PARENTHESES expres_s RIGHT_PARENTHESES .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod2">rule 2</a> (expres_s)
+    MINUS          reduce using <a href="#prod2">rule 2</a> (expres_s)
+    MUL            reduce using <a href="#prod2">rule 2</a> (expres_s)
+    DIVIDE         reduce using <a href="#prod2">rule 2</a> (expres_s)
+    EOF            reduce using <a href="#prod2">rule 2</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod2">rule 2</a> (expres_s)
+    COMMA          reduce using <a href="#prod2">rule 2</a> (expres_s)
+
+
+
+<b><a name="state15">State</a> <a href="#state15">15</a></b>
+
+  <b>Kernel Items</b>
+    7 expres_s: WORLD .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod7">rule 7</a> (expres_s)
+    MINUS          reduce using <a href="#prod7">rule 7</a> (expres_s)
+    MUL            reduce using <a href="#prod7">rule 7</a> (expres_s)
+    DIVIDE         reduce using <a href="#prod7">rule 7</a> (expres_s)
+    EOF            reduce using <a href="#prod7">rule 7</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod7">rule 7</a> (expres_s)
+    COMMA          reduce using <a href="#prod7">rule 7</a> (expres_s)
+
+
+
+<b><a name="state16">State</a> <a href="#state16">16</a></b>
+
+  <b>Kernel Items</b>
+    8 expres_s: NUMBER .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod8">rule 8</a> (expres_s)
+    MINUS          reduce using <a href="#prod8">rule 8</a> (expres_s)
+    MUL            reduce using <a href="#prod8">rule 8</a> (expres_s)
+    DIVIDE         reduce using <a href="#prod8">rule 8</a> (expres_s)
+    EOF            reduce using <a href="#prod8">rule 8</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod8">rule 8</a> (expres_s)
+    COMMA          reduce using <a href="#prod8">rule 8</a> (expres_s)
+
+
+
+<b><a name="state17">State</a> <a href="#state17">17</a></b>
+
+  <b>Kernel Items</b>
+    9 expres_s: SIN . LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state18">18</a>
+
+
+
+<b><a name="state18">State</a> <a href="#state18">18</a></b>
+
+  <b>Kernel Items</b>
+    9 expres_s: SIN LEFT_PARENTHESES . expres_s RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state19">19</a>
+
+
+<b><a name="state19">State</a> <a href="#state19">19</a></b>
+
+  <b>Kernel Items</b>
+    9 expres_s: SIN LEFT_PARENTHESES expres_s . RIGHT_PARENTHESES
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    RIGHT_PARENTHESES shift, and go to state <a href="#state20">20</a>
+    PLUS           shift, and go to state <a href="#state4">4</a>
+    MINUS          shift, and go to state <a href="#state6">6</a>
+    MUL            shift, and go to state <a href="#state8">8</a>
+    DIVIDE         shift, and go to state <a href="#state10">10</a>
+
+
+
+<b><a name="state20">State</a> <a href="#state20">20</a></b>
+
+  <b>Kernel Items</b>
+    9 expres_s: SIN LEFT_PARENTHESES expres_s RIGHT_PARENTHESES .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod9">rule 9</a> (expres_s)
+    MINUS          reduce using <a href="#prod9">rule 9</a> (expres_s)
+    MUL            reduce using <a href="#prod9">rule 9</a> (expres_s)
+    DIVIDE         reduce using <a href="#prod9">rule 9</a> (expres_s)
+    EOF            reduce using <a href="#prod9">rule 9</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod9">rule 9</a> (expres_s)
+    COMMA          reduce using <a href="#prod9">rule 9</a> (expres_s)
+
+
+
+<b><a name="state21">State</a> <a href="#state21">21</a></b>
+
+  <b>Kernel Items</b>
+    10 expres_s: COS . LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state22">22</a>
+
+
+
+<b><a name="state22">State</a> <a href="#state22">22</a></b>
+
+  <b>Kernel Items</b>
+    10 expres_s: COS LEFT_PARENTHESES . expres_s RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state23">23</a>
+
+
+<b><a name="state23">State</a> <a href="#state23">23</a></b>
+
+  <b>Kernel Items</b>
+    10 expres_s: COS LEFT_PARENTHESES expres_s . RIGHT_PARENTHESES
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    RIGHT_PARENTHESES shift, and go to state <a href="#state24">24</a>
+    PLUS           shift, and go to state <a href="#state4">4</a>
+    MINUS          shift, and go to state <a href="#state6">6</a>
+    MUL            shift, and go to state <a href="#state8">8</a>
+    DIVIDE         shift, and go to state <a href="#state10">10</a>
+
+
+
+<b><a name="state24">State</a> <a href="#state24">24</a></b>
+
+  <b>Kernel Items</b>
+    10 expres_s: COS LEFT_PARENTHESES expres_s RIGHT_PARENTHESES .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod10">rule 10</a> (expres_s)
+    MINUS          reduce using <a href="#prod10">rule 10</a> (expres_s)
+    MUL            reduce using <a href="#prod10">rule 10</a> (expres_s)
+    DIVIDE         reduce using <a href="#prod10">rule 10</a> (expres_s)
+    EOF            reduce using <a href="#prod10">rule 10</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod10">rule 10</a> (expres_s)
+    COMMA          reduce using <a href="#prod10">rule 10</a> (expres_s)
+
+
+
+<b><a name="state25">State</a> <a href="#state25">25</a></b>
+
+  <b>Kernel Items</b>
+    11 expres_s: TAN . LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state26">26</a>
+
+
+
+<b><a name="state26">State</a> <a href="#state26">26</a></b>
+
+  <b>Kernel Items</b>
+    11 expres_s: TAN LEFT_PARENTHESES . expres_s RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state27">27</a>
+
+
+<b><a name="state27">State</a> <a href="#state27">27</a></b>
+
+  <b>Kernel Items</b>
+    11 expres_s: TAN LEFT_PARENTHESES expres_s . RIGHT_PARENTHESES
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    RIGHT_PARENTHESES shift, and go to state <a href="#state28">28</a>
+    PLUS           shift, and go to state <a href="#state4">4</a>
+    MINUS          shift, and go to state <a href="#state6">6</a>
+    MUL            shift, and go to state <a href="#state8">8</a>
+    DIVIDE         shift, and go to state <a href="#state10">10</a>
+
+
+
+<b><a name="state28">State</a> <a href="#state28">28</a></b>
+
+  <b>Kernel Items</b>
+    11 expres_s: TAN LEFT_PARENTHESES expres_s RIGHT_PARENTHESES .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod11">rule 11</a> (expres_s)
+    MINUS          reduce using <a href="#prod11">rule 11</a> (expres_s)
+    MUL            reduce using <a href="#prod11">rule 11</a> (expres_s)
+    DIVIDE         reduce using <a href="#prod11">rule 11</a> (expres_s)
+    EOF            reduce using <a href="#prod11">rule 11</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod11">rule 11</a> (expres_s)
+    COMMA          reduce using <a href="#prod11">rule 11</a> (expres_s)
+
+
+
+<b><a name="state29">State</a> <a href="#state29">29</a></b>
+
+  <b>Kernel Items</b>
+    12 expres_s: SEC . LEFT_PARENTHESES expres_s RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state30">30</a>
+
+
+
+<b><a name="state30">State</a> <a href="#state30">30</a></b>
+
+  <b>Kernel Items</b>
+    12 expres_s: SEC LEFT_PARENTHESES . expres_s RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state31">31</a>
+
+
+<b><a name="state31">State</a> <a href="#state31">31</a></b>
+
+  <b>Kernel Items</b>
+    12 expres_s: SEC LEFT_PARENTHESES expres_s . RIGHT_PARENTHESES
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    RIGHT_PARENTHESES shift, and go to state <a href="#state32">32</a>
+    PLUS           shift, and go to state <a href="#state4">4</a>
+    MINUS          shift, and go to state <a href="#state6">6</a>
+    MUL            shift, and go to state <a href="#state8">8</a>
+    DIVIDE         shift, and go to state <a href="#state10">10</a>
+
+
+
+<b><a name="state32">State</a> <a href="#state32">32</a></b>
+
+  <b>Kernel Items</b>
+    12 expres_s: SEC LEFT_PARENTHESES expres_s RIGHT_PARENTHESES .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod12">rule 12</a> (expres_s)
+    MINUS          reduce using <a href="#prod12">rule 12</a> (expres_s)
+    MUL            reduce using <a href="#prod12">rule 12</a> (expres_s)
+    DIVIDE         reduce using <a href="#prod12">rule 12</a> (expres_s)
+    EOF            reduce using <a href="#prod12">rule 12</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod12">rule 12</a> (expres_s)
+    COMMA          reduce using <a href="#prod12">rule 12</a> (expres_s)
+
+
+
+<b><a name="state33">State</a> <a href="#state33">33</a></b>
+
+  <b>Kernel Items</b>
+    13 expres_s: CROSS . LEFT_PARENTHESES expres_s COMMA expres_s 
+                   RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state34">34</a>
+
+
+
+<b><a name="state34">State</a> <a href="#state34">34</a></b>
+
+  <b>Kernel Items</b>
+    13 expres_s: CROSS LEFT_PARENTHESES . expres_s COMMA expres_s 
+                   RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state35">35</a>
+
+
+<b><a name="state35">State</a> <a href="#state35">35</a></b>
+
+  <b>Kernel Items</b>
+    13 expres_s: CROSS LEFT_PARENTHESES expres_s . COMMA expres_s 
+                   RIGHT_PARENTHESES
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    COMMA          shift, and go to state <a href="#state36">36</a>
+    PLUS           shift, and go to state <a href="#state4">4</a>
+    MINUS          shift, and go to state <a href="#state6">6</a>
+    MUL            shift, and go to state <a href="#state8">8</a>
+    DIVIDE         shift, and go to state <a href="#state10">10</a>
+
+
+
+<b><a name="state36">State</a> <a href="#state36">36</a></b>
+
+  <b>Kernel Items</b>
+    13 expres_s: CROSS LEFT_PARENTHESES expres_s COMMA . expres_s 
+                   RIGHT_PARENTHESES
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state37">37</a>
+
+
+<b><a name="state37">State</a> <a href="#state37">37</a></b>
+
+  <b>Kernel Items</b>
+    13 expres_s: CROSS LEFT_PARENTHESES expres_s COMMA expres_s . 
+                   RIGHT_PARENTHESES
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    RIGHT_PARENTHESES shift, and go to state <a href="#state38">38</a>
+    PLUS           shift, and go to state <a href="#state4">4</a>
+    MINUS          shift, and go to state <a href="#state6">6</a>
+    MUL            shift, and go to state <a href="#state8">8</a>
+    DIVIDE         shift, and go to state <a href="#state10">10</a>
+
+
+
+<b><a name="state38">State</a> <a href="#state38">38</a></b>
+
+  <b>Kernel Items</b>
+    13 expres_s: CROSS LEFT_PARENTHESES expres_s COMMA expres_s 
+                   RIGHT_PARENTHESES .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod13">rule 13</a> (expres_s)
+    MINUS          reduce using <a href="#prod13">rule 13</a> (expres_s)
+    MUL            reduce using <a href="#prod13">rule 13</a> (expres_s)
+    DIVIDE         reduce using <a href="#prod13">rule 13</a> (expres_s)
+    EOF            reduce using <a href="#prod13">rule 13</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod13">rule 13</a> (expres_s)
+    COMMA          reduce using <a href="#prod13">rule 13</a> (expres_s)
+
+
+
+<b><a name="state39">State</a> <a href="#state39">39</a></b>
+
+  <b>Kernel Items</b>
+    14 expres_s: MINUS . expres_s
+  <b>Parser Actions</b>
+    LEFT_PARENTHESES shift, and go to state <a href="#state12">12</a>
+    WORLD          shift, and go to state <a href="#state15">15</a>
+    NUMBER         shift, and go to state <a href="#state16">16</a>
+    SIN            shift, and go to state <a href="#state17">17</a>
+    COS            shift, and go to state <a href="#state21">21</a>
+    TAN            shift, and go to state <a href="#state25">25</a>
+    SEC            shift, and go to state <a href="#state29">29</a>
+    CROSS          shift, and go to state <a href="#state33">33</a>
+    MINUS          shift, and go to state <a href="#state39">39</a>
+
+  <b>Transitions</b>
+    expres_s       go to state <a href="#state40">40</a>
+
+
+<b><a name="state40">State</a> <a href="#state40">40</a></b>
+
+  <b>Kernel Items</b>
+    14 expres_s: MINUS expres_s .
+	-lookahead: { PLUS, MINUS, MUL, DIVIDE, EOF, RIGHT_PARENTHESES, COMMA }
+    3 expres_s: expres_s . PLUS expres_s
+    4 expres_s: expres_s . MINUS expres_s
+    5 expres_s: expres_s . MUL expres_s
+    6 expres_s: expres_s . DIVIDE expres_s
+  <b>Parser Actions</b>
+    PLUS           reduce using <a href="#prod14">rule 14</a> (expres_s)
+    MINUS          reduce using <a href="#prod14">rule 14</a> (expres_s)
+    MUL            reduce using <a href="#prod14">rule 14</a> (expres_s)
+    DIVIDE         reduce using <a href="#prod14">rule 14</a> (expres_s)
+    EOF            reduce using <a href="#prod14">rule 14</a> (expres_s)
+    RIGHT_PARENTHESES reduce using <a href="#prod14">rule 14</a> (expres_s)
+    COMMA          reduce using <a href="#prod14">rule 14</a> (expres_s)
+
+
+
+</pre></hr></body></html>

@@ -17,7 +17,7 @@ namespace Test.MathParser
             value = "(sin(x)-cos(y*x))";
             TestMathFormat(value);
             value = "(sin(x)-cos(x*x))";
-            TestMathFormat(value);
+            TestMathFormat(value); 
         }
 
         [Test]
@@ -62,8 +62,6 @@ namespace Test.MathParser
             function = "sec(t)".ToFunction();
             Assert.AreEqual(1.0f,function.GetValueByT(0.0f)); 
             Assert.AreEqual( "(tan(t)*sec(t))",function.GetDerivativeByT().ReduceOnce().ReduceOnce().ToString().Replace(" ",""));
-
-
             "(3+(u*cos(0.5*v)))*cos(v)".ToFunction().GetValueByUV(0, 0);
         }
         private static void TestMathFormat(string value)

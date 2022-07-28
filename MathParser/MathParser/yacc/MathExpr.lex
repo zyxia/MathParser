@@ -21,6 +21,16 @@ RealNum              ([1-9]\d*\.?\d*)|(-?0\.\d*[1-9])
 // =============================================================
  
 [a-zA-Z_][a-zA-Z0-9_]*           {
+                                        if ( yytext == "cross")
+                                        {
+                                            //System.Console.WriteLine(yytext);
+                                            return (int)Tokens.CROSS;
+                                        }     
+                                        if ( yytext == "dot")
+                                        {
+                                            //System.Console.WriteLine(yytext);
+                                            return (int)Tokens.DOT;
+                                        }                       
                                         if ( yytext == "sin")
                                         {
                                             //System.Console.WriteLine(yytext);
